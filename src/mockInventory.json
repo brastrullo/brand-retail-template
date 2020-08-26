@@ -1,0 +1,477 @@
+{
+  "unused": [
+    {
+      "id": "rol3ERLKwfw",
+      "desc": "Black shirt (print: square-cropped lines), jeans, gray sneakers",
+      "list": ["MkA3_0KhLVU"],
+      "alt": ["kx4jA9T44bc"]
+    },
+    {
+      "id": "cCKmXQT_lvI",
+      "desc": "Cross-braid Top, pink skirt, white shoes",
+      "list": ["nF3CZ1ElIlA"],
+      "alt": []
+    },
+    {
+      "id": "6rsySABHVRU",
+      "desc": "Orange shirt 'GYALIS', shades",
+      "list": ["KTayJp11sBY"],
+      "alt": []
+    },
+    {
+      "id": "csOV0xYhTaE",
+      "desc": "White button up, shades",
+      "list": ["k9f1viTnBkQ"],
+      "alt": []
+    }
+  ],
+  "unsplash": [
+    {
+      "id": "i6SWj7KUsdQ",
+      "desc": "Yellow shirt, black skinny jeans, white sneakers",
+      "list": [
+        "HoO4f5O47Us",
+        "mnLfkBj5_6o"
+      ],
+      "alt": []
+    },
+    {
+      "id": "kx4jA9T44bc",
+      "desc": "White shirt (print: square-cropped lines), jeans",
+      "list": ["MkA3_0KhLVU"],
+      "alt": ["rol3ERLKwfw"]
+    },
+    {
+      "id": "mAAftZmgVEE",
+      "desc": "Dark trousers, black shoes",
+      "list": [
+        "XoP2wCUkGHo",
+        "47OAp-a3img"
+      ],
+      "alt": []
+    },
+    {
+      "id": "JTVr4mGHkUU",
+      "desc": "Pink fleece sweater, black top and ripped jeans",
+      "list": [
+        "P7b4AlNh6nI",
+        "hqagrUiQQ4g"
+      ],
+      "alt": []
+    },
+    {
+      "id": "e4ucT8IA3KM",
+      "desc": "Flower embroidered pink bomber, ripped jeans",
+      "list": ["USsZ3nms5y4"],
+      "alt": []
+    }
+  ],
+  "inventory": [
+    {
+      "id": "i6SWj7KUsdQ",
+      "refId": "0",
+      "name": "'Love is Our Culture' Tee",
+      "oneLineDesc": "Unisex Top",
+      "category": "Unisex Top",
+      "longDescription": "Yellow shirt, black skinny jeans, white sneakers",
+      "price": 35.00,
+      "sizeSeed": 1,
+      "specSeed": 0,
+      "imgList" : [
+        "HoO4f5O47Us",
+        "mnLfkBj5_6o"
+      ],
+      "related": [],
+      "options": [
+        {
+          "type": "size",
+          "list":  [
+            { "id": "S01", "value": "5", "available": true },
+            { "id": "S02", "value": "5.5", "available": true },
+            { "id": "S03", "value": "6", "available": false },
+            { "id": "S04", "value": "6.5", "available": true },
+            { "id": "S05", "value": "7", "available": true },
+            { "id": "S06", "value": "7.5", "available": true },
+            { "id": "S07", "value": "8", "available": true },
+            { "id": "S08", "value": "8.5", "available": true },
+            { "id": "S09", "value": "9", "available": true },
+            { "id": "S10", "value": "9.5", "available": true },
+            { "id": "S11", "value": "10", "available": true },
+            { "id": "S12", "value": "10.5", "available": true },
+            { "id": "S13", "value": "11", "available": true },
+            { "id": "S14", "value": "11.5", "available": true },
+            { "id": "S15", "value": "12", "available": false },
+            { "id": "S16", "value": "13", "available": false },
+            { "id": "S17", "value": "14", "available": false },
+            { "id": "S18", "value": "15", "available": false },
+            { "id": "S19", "value": "16", "available": false }
+          ]
+        },
+        {
+          "type": "colour",
+          "list": [
+              { 
+                "id": "C01",
+                "label": "White / White",
+                "fill": ["#fff", "#fff"],
+                "available": false
+              },
+              {
+                "id": "C02",
+                "label": "Black / Yellow",
+                "fill": ["#1A1A1A", "#EED202"],
+                "available": false
+              },
+              {
+                "id": "C03",
+                "label": "Black",
+                "fill": ["#1A1A1A"],
+                "available": true
+              },
+              {
+                "id": "C04",
+                "label": "White / Red",
+                "fill": ["#fff", "#e31414"],
+                "available": true
+              }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kx4jA9T44bc",
+      "refId": "1",
+      "name": "Graphic Printed Tee",
+      "oneLineDesc": "Unisex Top",
+      "category": "Unisex Top",
+      "longDescription": "White shirt (print: square-cropped lines), jeans",
+      "price": 35.00,
+      "sizeSeed": 0,
+      "specSeed": 0,
+      "imgList": ["MkA3_0KhLVU"],
+      "related": ["rol3ERLKwfw"],
+      "options": [
+        {
+          "type": "size",
+          "list":  [
+            { "id": "S01", "value": "XS", "available": true },
+            { "id": "S02", "value": "S", "available": true },
+            { "id": "S03", "value": "M", "available": false },
+            { "id": "S04", "value": "L", "available": true },
+            { "id": "S05", "value": "X", "available": false },
+            { "id": "S06", "value": "XL", "available": true }
+          ]
+        },
+        {
+          "type": "colour",
+          "list": [
+              { 
+                "id": "C01",
+                "label": "White / White",
+                "fill": ["#fff", "#fff"],
+                "available": false
+              },
+              {
+                "id": "C02",
+                "label": "Black / Yellow",
+                "fill": ["#1A1A1A", "#EED202"],
+                "available": true
+              },
+              {
+                "id": "C03",
+                "label": "Black",
+                "fill": ["#1A1A1A"],
+                "available": true
+              },
+              {
+                "id": "C04",
+                "label": "White / Red",
+                "fill": ["#fff", "#e31414"],
+                "available": false
+              }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mAAftZmgVEE",
+      "refId": "2",
+      "name": "Slim Fit Grey Trousers",
+      "oneLineDesc": "Men's Pants",
+      "category": "Men's Pants",
+      "longDescription": "Dark trousers, black shoes",
+      "price": 125.00,
+      "sizeSeed": 0,
+      "specSeed": 0,
+      "imgList": [
+        "XoP2wCUkGHo",
+        "47OAp-a3img"
+      ],
+      "related": [],
+      "options": [
+        {
+          "type": "size",
+          "list":  [
+            { "id": "S01", "value": "XS", "available": true },
+            { "id": "S02", "value": "S", "available": true },
+            { "id": "S03", "value": "M", "available": false },
+            { "id": "S04", "value": "L", "available": true },
+            { "id": "S05", "value": "X", "available": false },
+            { "id": "S06", "value": "XL", "available": true }
+          ]
+        },
+        {
+          "type": "colour",
+          "list": [
+              { 
+                "id": "C01",
+                "label": "White / White",
+                "fill": ["#fff", "#fff"],
+                "available": true
+              },
+              {
+                "id": "C02",
+                "label": "Black / Yellow",
+                "fill": ["#1A1A1A", "#EED202"],
+                "available": false
+              },
+              {
+                "id": "C03",
+                "label": "Black",
+                "fill": ["#1A1A1A"],
+                "available": true
+              },
+              {
+                "id": "C04",
+                "label": "White / Red",
+                "fill": ["#fff", "#e31414"],
+                "available": true
+              }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "JTVr4mGHkUU",
+      "refId": "3",
+      "name": "Pink Fleece Zip-up",
+      "oneLineDesc": "Women's Outwear",
+      "category": "Women's Outwear",
+      "longDescription": "Pink fleece sweater, black top and ripped jeans",
+      "price": 125.00,
+      "sizeSeed": 0,
+      "specSeed": 0,
+      "imgList": [
+        "P7b4AlNh6nI",
+        "hqagrUiQQ4g"
+      ],
+      "options": [
+        {
+          "type": "size",
+          "list":  [
+            { "id": "S01", "value": "XS", "available": true },
+            { "id": "S02", "value": "S", "available": true },
+            { "id": "S03", "value": "M", "available": false },
+            { "id": "S04", "value": "L", "available": true },
+            { "id": "S05", "value": "X", "available": false },
+            { "id": "S06", "value": "XL", "available": true }
+          ]
+        },
+        {
+          "type": "colour",
+          "list": [
+              { 
+                "id": "C01",
+                "label": "White / White",
+                "fill": ["#fff", "#fff"],
+                "available": true
+              },
+              {
+                "id": "C02",
+                "label": "Black / Yellow",
+                "fill": ["#1A1A1A", "#EED202"],
+                "available": false
+              },
+              {
+                "id": "C03",
+                "label": "Black",
+                "fill": ["#1A1A1A"],
+                "available": true
+              },
+              {
+                "id": "C04",
+                "label": "White / Red",
+                "fill": ["#fff", "#e31414"],
+                "available": true
+              }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4ucT8IA3KM",
+      "refId": "4",
+      "name": "Pink Blazer Flower Embroidered",
+      "oneLineDesc": "Women's Outwear",
+      "category": "Women's Outwear",
+      "longDescription": "Flower embroidered pink bomber, ripped jeans",
+      "price": 80.00,
+      "sizeSeed": 0,
+      "specSeed": 0,
+      "imgList": ["USsZ3nms5y4"],
+      "related": [],
+      "options": [
+        {
+          "type": "size",
+          "list":  [
+            { "id": "S01", "value": "XS", "available": true },
+            { "id": "S02", "value": "S", "available": true },
+            { "id": "S03", "value": "M", "available": false },
+            { "id": "S04", "value": "L", "available": true },
+            { "id": "S05", "value": "X", "available": false },
+            { "id": "S06", "value": "XL", "available": true }
+          ]
+        },
+        {
+          "type": "colour",
+          "list": [
+              { 
+                "id": "C01",
+                "label": "White / White",
+                "fill": ["#fff", "#fff"],
+                "available": true
+              },
+              {
+                "id": "C02",
+                "label": "Black / Yellow",
+                "fill": ["#1A1A1A", "#EED202"],
+                "available": true
+              },
+              {
+                "id": "C03",
+                "label": "Black",
+                "fill": ["#1A1A1A"],
+                "available": true
+              },
+              {
+                "id": "C04",
+                "label": "White / Red",
+                "fill": ["#fff", "#e31414"],
+                "available": false
+              }
+          ]
+        }
+      ]
+    }
+  ],
+  "sizes": {
+    "0": [
+      { "size": "XS", "status": "OK" },
+      { "size": "S", "status": "OK" },
+      { "size": "M", "status": "NO" },
+      { "size": "L", "status": "OK" },
+      { "size": "X", "status": "OK" },
+      { "size": "XL", "status": "OK" }
+    ],
+    "1": [
+      { "size": "5", "status": "OK" },
+      { "size": "5.5", "status": "OK" },
+      { "size": "6", "status": "NO" },
+      { "size": "6.5", "status": "OK" },
+      { "size": "7", "status": "OK" },
+      { "size": "7.5", "status": "OK" },
+      { "size": "8", "status": "OK" },
+      { "size": "8.5", "status": "OK" },
+      { "size": "9", "status": "OK" },
+      { "size": "9.5", "status": "OK" },
+      { "size": "10", "status": "OK" },
+      { "size": "10.5", "status": "OK" },
+      { "size": "11", "status": "OK" },
+      { "size": "11.5", "status": "OK" },
+      { "size": "12", "status": "NO" },
+      { "size": "13", "status": "NO" },
+      { "size": "14", "status": "NO" },
+      { "size": "15", "status": "NO" },
+      { "size": "16", "status": "NO" }
+    ],
+    "2": [
+      { "size": "13", "status": "OK" },
+      { "size": "14", "status": "OK" },
+      { "size": "15", "status": "NO" },
+      { "size": "16", "status": "NO" }
+    ]
+  },
+  "specs": {
+    "0": [
+      {
+        "specID": "0",
+        "type": "colour",
+        "obj": { "name": "White / White", "code": ["#fff", "#fff"] }
+      },
+      {
+        "specID": "1",
+        "type": "colour",
+        "obj": { "name": "Black / Yellow", "code": ["#1A1A1A", "#EED202"] }
+      },
+      {
+        "specID": "2",
+        "type": "colour",
+        "obj": { "name": "Black", "code": "#1A1A1A" }
+      },
+      {
+        "specID": "3",
+        "type": "colour",
+        "obj": { "name": "White / Red", "code": ["#fff", "#e31414"] }
+      }
+    ],
+    "1": [
+      {
+        "specID": "0",
+        "type": "colour",
+        "obj": { "name": "White / Red", "code": ["#fff", "#e31414"] }
+      },
+      {
+        "specID": "1",
+        "type": "colour",
+        "obj": { "name": "White / White", "code": ["#fff", "#fff"] }
+      },
+      {
+        "specID": "2",
+        "type": "colour",
+        "obj": { "name": "Black / Yellow", "code": ["#1A1A1A", "#EED202"] }
+      },
+      {
+        "specID": "3",
+        "type": "colour",
+        "obj": { "name": "Black", "code": "#1A1A1A" }
+      }
+    ],
+    "2": [
+      {
+        "specID": "0",
+        "type": "colour",
+        "obj": { "name": "Black / Yellow", "code": ["#1A1A1A", "#EED202"] }
+      },
+      {
+        "specID": "1",
+        "type": "colour",
+        "obj": { "name": "White / White", "code": ["#fff", "#fff"] }
+      },
+      {
+        "specID": "2",
+        "type": "colour",
+        "obj": { "name": "Black", "code": "#1A1A1A" }
+      },
+      {
+        "specID": "3",
+        "type": "colour",
+        "obj": { "name": "White / Red", "code": ["#fff", "#e31414"] }
+      },
+      {
+        "specID": "4",
+        "type": "colour",
+        "obj": { "name": "Red", "code": "#e31414" }
+      }
+    ]
+  }
+}
