@@ -3,16 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 export const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    // *** mock item array --->: [
-    // ***  { id: '1b3462v', quantity: 1, size: '5.5', specID: 0 }
-    // *** ]
     items: [
-      { refId: "0", quantity: 1, size: '7.5', specID: "2", price: 120.00 },
-      { refId: "2", quantity: 1, size: '10.5', specID: "3", price: 35.00 },
-      { refId: "1", quantity: 1, size: 'L', specID: "1", price: 25.00 }
+      // { uid: "uniqueid", id: "mAAftZmgVEE", quantity: 2, size: '33', colour: "C01", price: 125.00}
     ],
-    count: 3,
-    subtotal: 180.00,
+    count: 0,
+    subtotal: 0.00,
   },
   reducers: {
     updateCount: (state) => {
@@ -29,33 +24,47 @@ export const cartSlice = createSlice({
       })
       state.subtotal = Number(sub).toFixed(2);
     },
+    combineItems: (state) => {
+
+    },
     addItem: (state, action) => {
-      const { obj } = action.payload;
-      state.items.push(obj);
-      state.subtotal += obj.price;
+      const { id, size, colour, price, quantity } = action.payload;
+      const duplicateItem = state.items.find(obj =>
+        obj.id === id &&
+        obj.size === size &&
+        obj.colour === colour
+      )
+      if (duplicateItem) {
+        const index = state.items.findIndex(obj => obj.id === duplicateItem.id)
+        state.items[index].quantity += quantity
+      } else {
+        state.items.push(action.payload);
+      }
+      state.subtotal += price;
     },
     removeItem: (state, action) => {
-      const refId = action.payload;
-      const arrIndex = state.items.findIndex(obj => obj.refId.toString() === refId.toString());
+      const id = action.payload;
+      const arrIndex = state.items.findIndex(obj => obj.id === id);
       state.items.splice(arrIndex, 1);
     },
     updateItemQuantity: (state, action) => {
-      const { refId, quantity } = action.payload;
-      const arrIndex = state.items.findIndex(obj => obj.refId.toString() === refId.toString())
-      const itemObj = state.items[arrIndex]
+      const { uid, quantity } = action.payload;
+      const arrIndex = state.items.findIndex(obj => obj.uid === uid)
+      const itemObj = state.items[arrIndex];
       state.items[arrIndex] = { ...itemObj, quantity: Number(quantity)}
     },
     updateItemSize: (state, action) => {
-      const {refId, size } = action.payload;
-      const arrIndex = state.items.findIndex(obj => obj.refId.toString() === refId.toString())
+      const { uid, size } = action.payload;
+      console.log(action.payload)
+      const arrIndex = state.items.findIndex(obj => obj.uid === uid)
       const itemObj = state.items[arrIndex]
       state.items[arrIndex] = { ...itemObj, size}
     },
     updateItemSpec: (state, action) => {
-      const { refId, specID } = action.payload;
-      const arrIndex = state.items.findIndex(obj => obj.refId.toString() === refId.toString())
+      const { uid, colour } = action.payload;
+      const arrIndex = state.items.findIndex(obj => obj.uid === uid)
       const itemObj = state.items[arrIndex]
-      state.items[arrIndex] = { ...itemObj, specID}
+      state.items[arrIndex] = { ...itemObj, colour}
     },
   },
 });
@@ -80,8 +89,8 @@ export const addItemAndUpdateCount = obj => dispatch => {
   dispatch(updateCount())
   dispatch(updateSubtotal())
 };
-export const removeItemAndUpdateCount = refId => dispatch => {
-  dispatch(removeItem(refId))
+export const removeItemAndUpdateCount = uid => dispatch => {
+  dispatch(removeItem(uid))
   dispatch(updateCount())
   dispatch(updateSubtotal())
 };

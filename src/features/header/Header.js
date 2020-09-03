@@ -8,12 +8,15 @@ import { Link } from "react-router-dom";
 import Dropdown from '../dropdown/DropdownWrapper';
 
 const StyledHeader = styled.header`
+  box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-content: center;
-  height: 2rem;
-  margin: 1rem;
+  align-items: center;
+  height: 3rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid lightgrey;
 
   .link-wrapper {
     color: #000;

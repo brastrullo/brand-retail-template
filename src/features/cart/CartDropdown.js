@@ -12,15 +12,6 @@ import data from '../../mockInventory.json';
 import styled from 'styled-components';
 
 const StyledDropdown = styled.div`
-  position: absolute;
-  top: 2rem;
-  right: -1rem;
-  display: flex;
-  padding: 1rem;
-  flex-flow: column nowrap;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid lightgray;
-  width: 20rem;
 
   .dropdown-title {
     margin: 0;
@@ -89,29 +80,31 @@ export function CartDropdown() {
   const items = useSelector(selectItemArray);
   const cartCount = useSelector(selectCartCount);
   // const dispatch = useDispatch();
-
   const getInventoryData = () => data.inventory;
-  const inventorySpecs = data.specs;
-  const getItemObj = (refId) => getInventoryData().find(item => item.refId.toString() === refId.toString());
-
+  const getItemObj = (id) => getInventoryData().find(item => item.id === id);
+  
   const cartList = items.map((item, i) => {
-    const imgUrl = `https://picsum.photos/seed/brand${i}s/80`;
-    const { refId, specID, size } = item;
-    const itemObj = getItemObj(refId);
-    console.log({item, itemObj});
-    const type = inventorySpecs[0][0].type;
-    const spec = inventorySpecs[itemObj.specSeed][specID].obj.name;
+    const imgUrl = `https://source.unsplash.com/${item.id}/80x80`;
+    const { id, colour, size, quantity } = item;
+    const itemObj = getItemObj(id);
+    const getOptionObj = (id) => itemObj.options[1].list.find(obj => obj.id.toString() === id.toString());
+    const type = itemObj.options[1].type;
+    const colourName = getOptionObj(colour).label;
 
     return (
       <li key={`ct${i}`} className="cart-item">
         <img className="cart-item-img" src={imgUrl} alt={'placeholder'} />
         <div className="details-container">
           <p className="details-name">{itemObj.name}</p>
-          <p className="details-desc">{itemObj.oneLineDesc}</p>
+          <p className="details-desc">{itemObj.category}</p>
           <div className="specs-container">
             <p className="spec-item">
+              <span className="spec-item-label">Quantity: </span>
+              <span className="spec-item-value">{quantity}</span>
+            </p>
+            <p className="spec-item">
               <span className="spec-item-label">{type}: </span>
-              <span className="spec-item-value">{spec}</span>
+              <span className="spec-item-value">{colourName}</span>
             </p>
             <p className="spec-item">
               <span className="spec-item-label">Size: </span>

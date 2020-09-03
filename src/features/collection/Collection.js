@@ -15,15 +15,14 @@ const StyledCollection = styled.section`
 `;
 
 const Collection = (props) => {
-  const { obj } = props;
-  const { items, photos } = obj;
+  const { obj, name } = props;
 
-  const collectionMap = items.map((item, i) =>
-    <CollectionItem key={shortid.generate()} obj={{...item, i, imgId: photos[i].id }} />);
-  
+  const collectionMap = (obj || []).map(item =>
+    <CollectionItem key={shortid.generate()} obj={item} />
+  );
   return (
     <>
-      <Title>New Arrivals</Title>
+      <Title>{name}</Title>
       <StyledCollection>
         { collectionMap }
       </StyledCollection>

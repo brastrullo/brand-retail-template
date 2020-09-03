@@ -7,12 +7,13 @@ const Container = styled.div`
   flex-flow: column nowrap;
 `;
 
-const Title = styled.h3``;
-
+const Title = styled.p`
+  margin: 1rem 0 .5rem;
+`;
 const List = styled.ul`
   list-style: none;
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 4.5rem);
   padding-left: 0;
   margin: 0;
 `;
@@ -21,16 +22,16 @@ const ListItem = styled.li`
   box-sizing: border-box;
   padding: 0;
   display: flex;
-  margin: .25rem;
   position: relative;
-  border: 2px solid white;
+  border: 1px solid white;
 
   &.selected {
-    border: 2px solid black;
+    border: 1px solid black;
   }
 
   &.not-available {
     label {
+      cursor: default;
       filter: saturate(20%) brightness(80%);
       color: darkgray;
       border: 1px solid lightgray;
@@ -63,6 +64,7 @@ const Button = styled.label`
   &:hover {
     filter: opacity(80%);
     border: 1px solid darkgray;
+    cursor: pointer;
   }
 
   span {
@@ -101,7 +103,7 @@ export const Colors = (props) => {
     changeHandler({ [objKey]: e.target.value})
   }
 
-  const TITLE_LABEL = title.charAt(0).toUpperCase() + title.slice(1) + 's';
+  const TITLE_LABEL = 'Select ' +title.charAt(0).toUpperCase() + title.slice(1);
 
   return (
     <Container>

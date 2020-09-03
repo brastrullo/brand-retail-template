@@ -39,12 +39,9 @@ const CollectionItem = (props) => {
   const {
     name,
     category: description,
-    imgId: id,
+    id,
     price
   } = obj;
-  // const size = 275;
-  // const randomImg = `https://source.unsplash.com/${size}x${size}?sig=${obj.i}`;
-  // const urlCollection = `https://source.unsplash.com/collection/12041053/${size}x${size}?sig=${obj.i}`;
   const imgUrl = `https://source.unsplash.com/${id}/325x325`;
   
   return (

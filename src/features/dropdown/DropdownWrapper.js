@@ -2,8 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import useDropdown from './useDropdown';
 
-const StyledDropdown = styled.div`
-  display: relative;
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const Button = styled.div`
+  display: flex;
+  box-sizing: border-box;
+  height: 3rem;
+  justify-items: center;
+  align-items: center;
+  padding: 0 1rem;
+  span {
+    margin-right: .1rem;
+  }
 `;
 
 const Indicator = styled.div`
@@ -19,22 +31,37 @@ const Indicator = styled.div`
     font-size: .5rem;
   }
 `;
+
+const Dropdown = styled.div`
+  position: absolute;
+  top: 2rem;
+  right: -1rem;
+  display: flex;
+  padding: 1rem;
+  flex-flow: column nowrap;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid lightgray;
+  width: 20rem;
+  z-index: 999;
+`;
 const DropdownWrapper = (props) => {
   const { count, label, children } = props;
   const { isDropdownShown, dropdownHandler } = useDropdown();
   
   return (
-    <StyledDropdown onClick={dropdownHandler} >
-      <span>
-        { label}
+    <Wrapper onClick={dropdownHandler} >
+      <Button>
+        <span>{ label}</span>
         { count !== 'undefined' &&
           <Indicator><i>{count}</i></Indicator>
         }
-      </span>
+      </Button>
       { isDropdownShown &&
-        children
+        <Dropdown>
+          { children }
+        </Dropdown>
       }
-    </StyledDropdown>
+    </Wrapper>
   )
 }
 

@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import detailsReducer from '../features/details/detailsSlice';
 import cartReducer from '../features/cart/cartSlice';
+import dataReducer from '../features/api/dataSlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    data: dataReducer,
+    details: detailsReducer,
     cart: cartReducer,
   },
 });

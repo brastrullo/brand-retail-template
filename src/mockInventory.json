@@ -70,13 +70,10 @@
     {
       "id": "i6SWj7KUsdQ",
       "refId": "0",
-      "name": "'Love is Our Culture' Tee",
-      "oneLineDesc": "Unisex Top",
-      "category": "Unisex Top",
-      "longDescription": "Yellow shirt, black skinny jeans, white sneakers",
-      "price": 35.00,
-      "sizeSeed": 1,
-      "specSeed": 0,
+      "name": "Low Top Sneakers",
+      "category": "Shoes",
+      "longDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "price": 99.00,
       "imgList" : [
         "HoO4f5O47Us",
         "mnLfkBj5_6o"
@@ -112,14 +109,14 @@
           "list": [
               { 
                 "id": "C01",
-                "label": "White / White",
-                "fill": ["#fff", "#fff"],
-                "available": false
+                "label": "White",
+                "fill": ["#fff"],
+                "available": true
               },
               {
                 "id": "C02",
-                "label": "Black / Yellow",
-                "fill": ["#1A1A1A", "#EED202"],
+                "label": "Black / Blue",
+                "fill": ["#1A1A1A", "#304FFE"],
                 "available": false
               },
               {
@@ -142,13 +139,10 @@
       "id": "kx4jA9T44bc",
       "refId": "1",
       "name": "Graphic Printed Tee",
-      "oneLineDesc": "Unisex Top",
       "category": "Unisex Top",
-      "longDescription": "White shirt (print: square-cropped lines), jeans",
+      "longDescription": "Ut pharetra sit amet aliquam id diam maecenas ultricies mi. Ante in nibh mauris cursus mattis molestie. Enim sed faucibus turpis in eu. Magna sit amet purus gravida quis blandit turpis cursus in. Imperdiet proin fermentum leo vel orci porta non pulvinar. Malesuada bibendum arcu vitae elementum. Sollicitudin tempor id eu nisl nunc mi ipsum. At elementum eu facilisis sed odio morbi. Mauris cursus mattis molestie a iaculis at erat pellentesque. Eu lobortis elementum nibh tellus molestie nunc non blandit.",
       "price": 35.00,
-      "sizeSeed": 0,
-      "specSeed": 0,
-      "imgList": ["MkA3_0KhLVU"],
+      "imgList": ["rol3ERLKwfw", "MkA3_0KhLVU"],
       "related": ["rol3ERLKwfw"],
       "options": [
         {
@@ -165,30 +159,18 @@
         {
           "type": "colour",
           "list": [
-              { 
-                "id": "C01",
-                "label": "White / White",
-                "fill": ["#fff", "#fff"],
-                "available": false
-              },
-              {
-                "id": "C02",
-                "label": "Black / Yellow",
-                "fill": ["#1A1A1A", "#EED202"],
-                "available": true
-              },
-              {
-                "id": "C03",
-                "label": "Black",
-                "fill": ["#1A1A1A"],
-                "available": true
-              },
-              {
-                "id": "C04",
-                "label": "White / Red",
-                "fill": ["#fff", "#e31414"],
-                "available": false
-              }
+            { 
+              "id": "C01",
+              "label": "White",
+              "fill": ["#fff"],
+              "available": true
+            },
+            {
+              "id": "C02",
+              "label": "Black",
+              "fill": ["#1A1A1A"],
+              "available": true
+            }
           ]
         }
       ]
@@ -196,13 +178,10 @@
     {
       "id": "mAAftZmgVEE",
       "refId": "2",
-      "name": "Slim Fit Grey Trousers",
-      "oneLineDesc": "Men's Pants",
+      "name": "Slim Fit Trousers",
       "category": "Men's Pants",
-      "longDescription": "Dark trousers, black shoes",
+      "longDescription": "Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus. Risus viverra adipiscing at in tellus. Scelerisque in dictum non consectetur a. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Ut venenatis tellus in metus. Gravida rutrum quisque non tellus orci ac. Egestas pretium aenean pharetra magna ac placerat vestibulum. Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Volutpat consequat mauris nunc congue nisi vitae suscipit tellus mauris. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Et leo duis ut diam quam nulla porttitor. Quisque sagittis purus sit amet volutpat. Tristique risus nec feugiat in fermentum posuere urna nec. Cursus mattis molestie a iaculis at erat pellentesque. Montes nascetur ridiculus mus mauris vitae.",
       "price": 125.00,
-      "sizeSeed": 0,
-      "specSeed": 0,
       "imgList": [
         "XoP2wCUkGHo",
         "47OAp-a3img"
@@ -212,12 +191,17 @@
         {
           "type": "size",
           "list":  [
-            { "id": "S01", "value": "XS", "available": true },
-            { "id": "S02", "value": "S", "available": true },
-            { "id": "S03", "value": "M", "available": false },
-            { "id": "S04", "value": "L", "available": true },
-            { "id": "S05", "value": "X", "available": false },
-            { "id": "S06", "value": "XL", "available": true }
+            { "id": "S01", "value": "28", "available": false },
+            { "id": "S02", "value": "29", "available": true },
+            { "id": "S03", "value": "30", "available": false },
+            { "id": "S04", "value": "31", "available": true },
+            { "id": "S05", "value": "32", "available": false },
+            { "id": "S06", "value": "33", "available": true },
+            { "id": "S07", "value": "34", "available": true },
+            { "id": "S08", "value": "35", "available": true },
+            { "id": "S09", "value": "36", "available": true },
+            { "id": "S10", "value": "37", "available": true },
+            { "id": "S11", "value": "38", "available": true }
           ]
         },
         {
@@ -225,15 +209,15 @@
           "list": [
               { 
                 "id": "C01",
-                "label": "White / White",
-                "fill": ["#fff", "#fff"],
+                "label": "Dark Grey",
+                "fill": ["#4D4D4D"],
                 "available": true
               },
               {
                 "id": "C02",
-                "label": "Black / Yellow",
-                "fill": ["#1A1A1A", "#EED202"],
-                "available": false
+                "label": "Light Grey",
+                "fill": ["#7B7B7B"],
+                "available": true
               },
               {
                 "id": "C03",
@@ -243,9 +227,9 @@
               },
               {
                 "id": "C04",
-                "label": "White / Red",
-                "fill": ["#fff", "#e31414"],
-                "available": true
+                "label": "Tan",
+                "fill": ["#cdcab6"],
+                "available": false
               }
           ]
         }
@@ -254,13 +238,10 @@
     {
       "id": "JTVr4mGHkUU",
       "refId": "3",
-      "name": "Pink Fleece Zip-up",
-      "oneLineDesc": "Women's Outwear",
+      "name": "Bright Fleece Zip-up",
       "category": "Women's Outwear",
-      "longDescription": "Pink fleece sweater, black top and ripped jeans",
+      "longDescription": "Et malesuada fames ac turpis egestas maecenas. Pellentesque elit eget gravida cum sociis natoque penatibus. Diam vel quam elementum pulvinar etiam non quam lacus suspendisse. Duis ut diam quam nulla porttitor massa id neque aliquam. Cursus metus aliquam eleifend mi. Orci dapibus ultrices in iaculis nunc sed augue lacus viverra. Aliquam vestibulum morbi blandit cursus risus at. Ultricies lacus sed turpis tincidunt id aliquet risus. Porttitor lacus luctus accumsan tortor posuere ac ut consequat. Vitae justo eget magna fermentum iaculis eu. Egestas purus viverra accumsan in. Pellentesque nec nam aliquam sem et tortor consequat id. Elementum tempus egestas sed sed risus pretium quam vulputate. Mattis vulputate enim nulla aliquet. Ut placerat orci nulla pellentesque dignissim enim sit amet venenatis.",
       "price": 125.00,
-      "sizeSeed": 0,
-      "specSeed": 0,
       "imgList": [
         "P7b4AlNh6nI",
         "hqagrUiQQ4g"
@@ -282,26 +263,26 @@
           "list": [
               { 
                 "id": "C01",
-                "label": "White / White",
-                "fill": ["#fff", "#fff"],
+                "label": "Pink",
+                "fill": ["#ffafa8"],
                 "available": true
               },
               {
                 "id": "C02",
-                "label": "Black / Yellow",
-                "fill": ["#1A1A1A", "#EED202"],
+                "label": "Yellow",
+                "fill": ["#EED202"],
                 "available": false
               },
               {
                 "id": "C03",
-                "label": "Black",
-                "fill": ["#1A1A1A"],
+                "label": "Green",
+                "fill": ["#9ed380"],
                 "available": true
               },
               {
                 "id": "C04",
-                "label": "White / Red",
-                "fill": ["#fff", "#e31414"],
+                "label": "Blue",
+                "fill": ["#4fc3f7"],
                 "available": true
               }
           ]
@@ -311,13 +292,10 @@
     {
       "id": "e4ucT8IA3KM",
       "refId": "4",
-      "name": "Pink Blazer Flower Embroidered",
-      "oneLineDesc": "Women's Outwear",
+      "name": "Flower Embroidered Bomber",
       "category": "Women's Outwear",
-      "longDescription": "Flower embroidered pink bomber, ripped jeans",
+      "longDescription": "Duis at consectetur lorem donec. Tincidunt dui ut ornare lectus. Amet cursus sit amet dictum. Tempus urna et pharetra pharetra massa. Nunc mattis enim ut tellus elementum. Neque gravida in fermentum et sollicitudin. In nisl nisi scelerisque eu ultrices. Ut morbi tincidunt augue interdum velit euismod. Non pulvinar neque laoreet suspendisse interdum consectetur libero id. Magna ac placerat vestibulum lectus mauris ultrices. Urna duis convallis convallis tellus id interdum velit. Lobortis elementum nibh tellus molestie. Vitae tempus quam pellentesque nec. Cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Dui vivamus arcu felis bibendum ut tristique et egestas quis. Amet consectetur adipiscing elit duis tristique sollicitudin. Eu scelerisque felis imperdiet proin.",
       "price": 80.00,
-      "sizeSeed": 0,
-      "specSeed": 0,
       "imgList": ["USsZ3nms5y4"],
       "related": [],
       "options": [
@@ -337,15 +315,15 @@
           "list": [
               { 
                 "id": "C01",
-                "label": "White / White",
-                "fill": ["#fff", "#fff"],
+                "label": "White",
+                "fill": ["#fff"],
                 "available": true
               },
               {
                 "id": "C02",
                 "label": "Black / Yellow",
                 "fill": ["#1A1A1A", "#EED202"],
-                "available": true
+                "available": false
               },
               {
                 "id": "C03",
@@ -355,15 +333,24 @@
               },
               {
                 "id": "C04",
-                "label": "White / Red",
-                "fill": ["#fff", "#e31414"],
-                "available": false
+                "label": "Pink",
+                "fill": ["#e26d63"],
+                "available": true
               }
           ]
         }
       ]
     }
   ],
+  "collections": {
+    "new_arrivals" : [
+      "i6SWj7KUsdQ",
+      "kx4jA9T44bc",
+      "mAAftZmgVEE",
+      "JTVr4mGHkUU",
+      "e4ucT8IA3KM"
+    ]
+  },
   "sizes": {
     "0": [
       { "size": "XS", "status": "OK" },

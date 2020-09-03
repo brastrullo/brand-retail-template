@@ -181,9 +181,7 @@ export function Cart() {
   const dispatch = useDispatch();
 
   const getInventoryData = () => data.inventory
-  const getItemObj = (refId) => getInventoryData().find(item => item.refId.toString() === refId.toString());
-  const getMockSizeData = (i) => data["sizes"][i]
-  const getMockSpecData = (i) => data["specs"][i]
+  const getItemObj = (id) => getInventoryData().find(item => item.id === id);
   const itemQuantityMap = Array.from(Array(9).keys()).map((n,i) => {
     return (
       <option
@@ -195,63 +193,64 @@ export function Cart() {
     )
   })
 
-  const itemSizeMap = i => getMockSizeData(i).map((obj, i) => {
-    const disabled = obj.status === "NO"
+  const itemSizeMap = (id) => getItemObj(id).options[0].list.map((obj, i) => {
     return (
       <option
         key={`sz${i}`}
-        value={obj.size}
-        disabled={disabled}
+        value={obj.value}
+        disabled={!obj.available}
       >
-        { obj.size }
+        { obj.value }
       </option>
     )
   })
 
-  const itemSpecMap = i => getMockSpecData(0).map((spec, i) => {
+  const itemSpecMap = id => getItemObj(id).options[1].list.map((obj, i) => {
     return (
       <option
         key={`sp${i}`}
-        value={spec.specID}
+        value={obj.id}
+        disabled={!obj.available}
       >
-        {spec.obj.name}
+        {obj.label}
       </option>
     )
   })
 
-  const selectQuantityHandler = (e, refId) => {
+  const selectQuantityHandler = (e, uid) => {
     const quantity = e.target.value;
-    dispatch(updateItemQuantity({refId, quantity}));
+    dispatch(updateItemQuantity({uid, quantity}));
   }
-  const selectSizeHandler = (e, refId) => {
+  const selectSizeHandler = (e, uid) => {
     const size = e.target.value;
-    dispatch(updateItemSize({refId, size}));
+    dispatch(updateItemSize({uid, size}));
   }
-  const selectSpecHandler = (e, refId) => {
-    const specID = e.target.value;
-    dispatch(updateItemSpec({refId, specID}));
+  const selectSpecHandler = (e, uid) => {
+    const colour = e.target.value;
+    dispatch(updateItemSpec({uid, colour}));
   }
-  const removeItemHandler = (refId) => {
-    dispatch(removeItem(refId))
+  const removeItemHandler = (uid) => {
+    dispatch(removeItem(uid))
   }
 
   const itemsMap = items.map((item, i) => {
-    const { refId, specID, quantity, size } = item;
-    const itemObj = getItemObj(refId);
-    const imgUrl = `https://source.unsplash.com/collection/12041053/200x200?sig=${i}`;
+    const { uid, id, colour, quantity, size } = item;
+    // uid is the unique id for every cart item
+    // id is the inventory item id
+    const itemObj = getItemObj(id);
+    const imgUrl = `https://source.unsplash.com/${id}/200x200`;
     const itemPrice = (itemObj.price * quantity).toFixed(2)
-    const COLOUR_LABEL = getMockSpecData(0)[0].type
-  
+    const COLOUR_LABEL = itemObj.options[1].type
     return <li key={`c${i}`} className="cart-item">
       <div className={'btn-wrapper item-delete'}>
-        <button onClick={() => removeItemHandler(refId)}>X</button>
+        <button onClick={() => removeItemHandler(id)}>X</button>
       </div>
       <div className={'img-wrapper'}>
         <img className={'item-img'} src={imgUrl} alt="placeholder"/>
       </div>
       <div className={'item-details'}>
         <p className={'details-name'}>{ `${itemObj.name}` }</p>
-        <p className={'details-desc'}>{ `${itemObj.oneLineDesc}` }</p>
+        <p className={'details-desc'}>{ `${itemObj.category}` }</p>
         <div className={'dropdowns-row'}>
           <div className={'details-size details-dropdown'}>
             <label htmlFor={'size'}>Size: </label>
@@ -259,9 +258,9 @@ export function Cart() {
               name="size"
               id="size"
               value={size}
-              onChange={(e) => selectSizeHandler(e, refId)}
+              onChange={(e) => selectSizeHandler(e, uid)}
             >
-              { itemSizeMap(itemObj.sizeSeed) }
+              { itemSizeMap(id) }
             </select>
           </div>
           <div className={'details-spec details-dropdown'}>
@@ -269,10 +268,10 @@ export function Cart() {
             <select
               name="spec"
               id="spec"
-              value={specID}
-              onChange={(e) => selectSpecHandler(e, refId)}
+              value={colour}
+              onChange={(e) => selectSpecHandler(e, uid)}
             >
-              { itemSpecMap(itemObj.specSeed) }
+              { itemSpecMap(id) }
             </select>
           </div>
         </div>
@@ -284,7 +283,7 @@ export function Cart() {
             name="quantity"
             id="quantity"
             value={quantity}
-            onChange={(e) => selectQuantityHandler(e, refId)}
+            onChange={(e) => selectQuantityHandler(e, uid)}
           >
             { itemQuantityMap }
           </select>
@@ -326,9 +325,20 @@ export function Cart() {
     <main>
       <div className={'review-list'}>
         <h2>Review Items</h2>
-          <ul className={'cart-list'}>
-            { itemsMap }
-          </ul>
+        {
+          Number(cartCount) === 0 ?
+            <>
+              <span>No items in your cart. </span>
+              <p>
+                <Link to="/shop">Proceed to Shop</Link>
+              </p>
+            </>
+          :
+            <ul className={'cart-list'}>
+              { itemsMap }
+            </ul>
+
+        }
       </div>
       { totalSummary() }
     </main>
