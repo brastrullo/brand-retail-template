@@ -10,49 +10,74 @@ const StyledFooter = styled.footer`
   color: white;
   padding: 1rem 1rem 0;
   display: grid;
-  gap: 1rem 1rem;
-  grid-template-columns: minmax(3rem, 10rem) auto auto;
+  gap: 1rem 3rem;
+  grid-template-columns: minmax(max-content, auto) auto max-content max-content minmax(0, 1rem);
   grid-template-rows: auto auto 1.2rem;
+  align-items: end;
+  grid-template-areas:
+  "logo . sublinks links ."
+  "social . sublinks links ."
+  "details details details details details";
+  @media (max-width: 800px) {
+    text-align: center;
+    gap: 0 0;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content auto auto 1.2rem;
+    justify-content: center;
+    justify-items: center;
+    grid-template-areas:
+    "sublinks"
+    "links"
+    "logo"
+    "social"
+    "details";
+  }
+  p {
+    margin: .5rem 0 0;
+  }
 `;
 
 const Logo = styled.p`
+  grid-area: logo;
   font-size: 3rem;
   font-weight: bold;
   margin: 0;
-  grid-area: 1 / 1 / 1 / 1;
 `;
 const SocialMediaComponent = styled(SocialMedia)`
-  grid-area: 2 / 1 / auto/ auto;
+  grid-area: social;
+  @media (max-width: 800px) {
+    margin: 1rem;
+  }
 `;
 const Links = styled.div`
-  grid-area: 1/ 5 / span 2/ span 1;
-  align-self: end;
-  p {
+  grid-area: links;
+  /* p {
     margin: 0;
     ~ p {
       margin-bottom: .5rem;
     }
-  }
+  } */
 `;
 const Sublinks = styled.div`
-  grid-area: 1/ 4 / span 2/ span 1;
-  align-self: end;
-  p {
+  grid-area: sublinks;
+  /* p {
     margin: 0;
     ~ p {
       margin-top: .5rem;
-    }  }
+    }  } */
 `;
 
 const FooterDetails = styled.div`
-  grid-area: 3 / 1 / 3 / 6;
+  grid-area: details;
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
   background: black;
-  /* height: 1.2rem; */
+  height: 1.2rem;
+  width: 100%;
   color: darkgray;
   padding: 0 .5rem 0;
+  justify-content: center;
   p {
     line-height: 1rem;
     font-size: .8rem;
@@ -93,8 +118,6 @@ export const Footer = () => {
       </Sublinks>
       <FooterDetails>
         <p>(c) 2020 Brand</p>
-        <p>by bradley.rastrullo</p>
-        <p>Disclaimers</p>
       </FooterDetails>
     </StyledFooter>
   );

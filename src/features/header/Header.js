@@ -17,6 +17,15 @@ const StyledHeader = styled.header`
   height: 3rem;
   padding: 0 1rem;
   border-bottom: 1px solid lightgrey;
+  background: white;
+  z-index: 9999999999999999;
+
+  @media (max-width: 800px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
   .link-wrapper {
     color: #000;

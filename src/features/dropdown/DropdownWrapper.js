@@ -34,13 +34,14 @@ const Indicator = styled.div`
 
 const Dropdown = styled.div`
   position: absolute;
-  top: 2rem;
-  right: -1rem;
+  top: 3rem;
+  right: 0rem;
   display: flex;
   padding: 1rem;
   flex-flow: column nowrap;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255);
   border: 1px solid lightgray;
+  border-top: none;
   width: 20rem;
   z-index: 999;
 `;

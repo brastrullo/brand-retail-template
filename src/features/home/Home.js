@@ -10,6 +10,9 @@ import {
 } from '../api/dataSlice';
 
 const StyledHome = styled.div`
+  @media (max-width: 800px) {
+    margin-top: 3rem;
+  }
 `;
 
 export function Home() {

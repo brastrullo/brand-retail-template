@@ -107,7 +107,7 @@
               { 
                 "id": "C01",
                 "label": "White",
-                "fill": ["#fff"],
+                "fill": ["#fdfdfd"],
                 "available": true
               },
               {
@@ -125,7 +125,7 @@
               {
                 "id": "C04",
                 "label": "White / Red",
-                "fill": ["#fff", "#e31414"],
+                "fill": ["#fdfdfd", "#e31414"],
                 "available": true
               }
           ]
@@ -158,7 +158,7 @@
             { 
               "id": "C01",
               "label": "White",
-              "fill": ["#fff"],
+              "fill": ["#fdfdfd"],
               "available": true
             },
             {
@@ -309,7 +309,7 @@
               { 
                 "id": "C01",
                 "label": "White",
-                "fill": ["#fff"],
+                "fill": ["#fdfdfd"],
                 "available": true
               },
               {

@@ -3,14 +3,21 @@ import styled from 'styled-components';
 import shortid from 'shortid';
 
 const Container = styled.div`
+  grid-area: icontainer;
   display: grid;
   grid-template-columns: auto;
   grid-gap: .5rem;
-  grid-template-rows: minmax(auto, 800px) 200px;
+  grid-template-rows: min-content 200px;
   /* overflow-y: hidden; */
   grid-template-areas:
   "image"
   "list";
+
+  @media (max-width: 800px) {
+    grid-template-areas:
+    "image"
+    "list";
+  }
 `;
 
 const MainImageWrapper = styled.div`
@@ -32,8 +39,6 @@ const ImageList = styled.ul`
   padding-left: 0;
   display: flex;
   flex-flow: row nowrap;
-  /* grid-template-columns: repeat(auto-fit, 200px); 
-  grid-template-rows: 200px; */
   overflow-x: scroll;
   overflow-y: hidden;
 `;

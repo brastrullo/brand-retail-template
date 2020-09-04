@@ -23,20 +23,26 @@ const Container = styled.div`
   margin: 1rem;
   flex-flow: row wrap;
   grid-gap: 1rem;
-  grid-template-columns: minmax(500px, 800px) auto;
-  grid-auto-rows: 4rem 1000px;
+  grid-template-columns: minmax(500px, 800px) minmax(270px, auto);
+  grid-auto-rows: 4rem minmax(max-content, auto);
   grid-template-areas:
     "icontainer header"
-    "icontainer tcontainer";
+    "icontainer ocontainer";
 
   @media (max-width: 800px) {
+    padding-top: 1rem;
+    margin-top: 3rem;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
     grid-template-areas:
+    "header"
     "icontainer"
-    "tcontainer";
+    "ocontainer";
   }
 `;
+
 const OptionsContainer = styled.div`
-  grid-area: tcontainer;
+  grid-area: ocontainer;
   width: 100%;
 `;
 
@@ -50,6 +56,9 @@ const Title = styled.p`
   grid-area: title;
   font-size: 1.5rem;
   margin: .5rem 0 2rem;
+  @media (max-width: 800px) {
+    margin-bottom: 0rem;
+  }
 `;
 const Subtitle = styled.span`
   grid-area: subtitle;
