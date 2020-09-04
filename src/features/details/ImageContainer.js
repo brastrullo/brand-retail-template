@@ -5,6 +5,7 @@ import shortid from 'shortid';
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto;
+  grid-gap: .5rem;
   grid-template-rows: minmax(auto, 800px) 200px;
   /* overflow-y: hidden; */
   grid-template-areas:
@@ -15,25 +16,35 @@ const Container = styled.div`
 const MainImageWrapper = styled.div`
   grid-area: image;
   img {
+    /* min-height: 800px; */
     max-width: 100%;
     max-height: 100%;
+    width: auto;
+    height: auto;
   }
 `;
 
 const ImageList = styled.ul`
   grid-area: list;
   list-style: none;
-  margin: .5rem 0;
+  margin: 0;
   grid-gap: .5rem;
   padding-left: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 200px); 
+  display: flex;
+  flex-flow: row nowrap;
+  /* grid-template-columns: repeat(auto-fit, 200px); 
+  grid-template-rows: 200px; */
   overflow-x: scroll;
   overflow-y: hidden;
 `;
 
 const SubImage = styled.li`
-
+  height: 200px;
+  width: 200px;
+  img {
+    height: auto;
+    width: auto;
+  }
 `;
 
 export const ImageContainer = (props) => {
