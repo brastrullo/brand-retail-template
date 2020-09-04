@@ -4,13 +4,14 @@ import SocialMedia from '../social/SocialWidget';
 
 const StyledFooter = styled.footer`
   box-sizing: border-box;
-  height: auto;
+  /* height: auto; */
+  min-height: 6rem;
   background: black;
   color: white;
   padding: 1rem 1rem 0;
   display: grid;
   gap: 1rem 1rem;
-  grid-template-columns: repeat( auto-fit, minmax(3rem, 10rem) );
+  grid-template-columns: minmax(3rem, 10rem) auto auto;
   grid-template-rows: auto auto 1.2rem;
 `;
 
@@ -44,7 +45,7 @@ const Sublinks = styled.div`
 `;
 
 const FooterDetails = styled.div`
-  grid-area: 3 / 1 / auto / 4;
+  grid-area: 3 / 1 / 3 / 6;
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;

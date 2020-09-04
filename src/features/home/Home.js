@@ -1,12 +1,11 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 import HeroBanner from '../hero/Hero';
 import Collection from '../collection/Collection'
 import {
-  selectCollections,
   selectNewArrivals
 } from '../api/dataSlice';
 

@@ -1,7 +1,10 @@
+// **** Look into adding GraphQL into Redux
+
 import React, { useEffect } from 'react';
 import { Cart } from './features/cart/Cart';
 import { Details } from './features/details/Details';
 import { Header } from './features/header/Header';
+import { Shop } from './features/shop/Shop';
 import { Home } from './features/home/Home';
 import { Footer } from './features/footer/Footer';
 import ScrollToTop from './utils/ScrollToTop';
@@ -36,7 +39,7 @@ function App() {
             <Details />
           </Route>
           <Route path="/shop">
-            <h3>Shop</h3>
+            <Shop />
           </Route>
           <Route path="/">
             <Home />

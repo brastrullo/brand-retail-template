@@ -19,7 +19,7 @@ const StyledBanner = styled.div`
 export const HeroBanner = () => {
   return (
     <StyledBanner>
-      <h1>BRAND</h1>
+      <h1>BRAND PROMO</h1>
     </StyledBanner>
   );
 }

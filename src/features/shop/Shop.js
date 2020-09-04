@@ -1,22 +1,15 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  incrementAsync,
-  selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
+import React from 'react';
+import styled from 'styled-components';
 
-export function Counter() {
-  const count = useSelector(selectCount);
-  const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
-
+const StyledShop = styled.div`
+  min-height: calc(100vh - 4rem - 11rem);
+`;
+export const Shop = () => {
   return (
-    <div>
-      <h3>Shop</h3>
-    </div>
+    <StyledShop>
+      <h1>Shop</h1>
+      <main>
+      </main>
+    </StyledShop>
   );
 }

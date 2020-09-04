@@ -9,12 +9,13 @@ import { ImageContainer } from './ImageContainer';
 import Collection from '../collection/Collection';
 import {
   addItemAndUpdateCount as addItem,
-  selectCartCount
 } from '../cart/cartSlice';
 import {
+  updateCountObj,
   fetchDetailsObj,
   selectCollections,
-  selectDetailsObj
+  selectDetailsObj,
+  selectCountObj
 } from '../api/dataSlice';
 
 const Container = styled.div`
@@ -34,7 +35,7 @@ const Container = styled.div`
     "tcontainer";
   }
 `;
-const TextContainer = styled.div`
+const OptionsContainer = styled.div`
   grid-area: tcontainer;
   width: 100%;
 `;
@@ -63,12 +64,26 @@ const PositionColors = styled(Colors)`
 const PositionSizes = styled(Sizes)`
   grid-area: sizes;
 `;
+const ButtonWrapper = styled.div`
+  position: relative;
+  span {
+    font-size: .7rem;
+    color: darkgrey;
+    position: absolute;
+    bottom: .7rem;
+    left: 0;
+  }
+    ~ button {
+    margin-bottom: .5rem;
+  }
+`;
 const Button = styled.button`
   font-size: 1rem;
   border: none;
   background: #252525;
   text-align: left;
   width: 100%;
+  max-width: 15rem;
   height: auto;
   color: white;
   margin: 1.5rem 0;
@@ -82,22 +97,20 @@ const Button = styled.button`
   }
 `;
 
-const Description = styled.div``;
+const CheckoutButton = styled(Button)`
+    margin-top: 0;
+`;
+
+const Description = styled.div`
+  margin-top: 2rem;
+`;
 
 export const Details = (props) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const detailsObj = useSelector(selectDetailsObj);
   const collections = useSelector(selectCollections);
-  const cartCount = useSelector(selectCartCount);
-
-  const fetchObj = async () => {
-    const awaitID = await id;
-    if (awaitID) {
-      console.log({awaitID});
-      dispatch(fetchDetailsObj(awaitID));
-    }
-  }
+  const countObj = useSelector(selectCountObj);
 
   const [itemObj, setItemObj] = useState({
     name: '',
@@ -108,28 +121,50 @@ export const Details = (props) => {
     imgList: [],
   });
 
+  const [addedToCart, setAddedToCart] = useState(false);
+  const [cartItem, setCartItem] = useState({});
+  const [itemCount, setItemCount] = useState(0);
+
+  const fetchObj = async () => {
+    const awaitID = await id;
+    if (awaitID) {
+      dispatch(fetchDetailsObj(awaitID));
+    }
+  }
+  const initCount = () => {
+    if (!!!countObj[id]) {
+      dispatch(updateCountObj({id, count: 0}))
+      setItemCount(0)
+    } else {
+      setItemCount(countObj[id])
+    }
+  }
+
+  useEffect(() => {
+    dispatch(updateCountObj({id, count: itemCount}));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemCount])
+
   useEffect(() => {
     fetchObj()
     if (Object.keys(detailsObj).length !== 0) {
       setItemObj(detailsObj);
+      initCount()
+      setCartItem({})
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, detailsObj])
 
-  const [addedToCart, setAddedToCart] = useState(false);
-  const [cartItem, setCartItem] = useState({});
+  useEffect(() => {
+    console.log({countObj, itemCount})
+  },[itemCount, countObj])
 
   const cartItemReady =
     cartItem &&
     !!cartItem.size &&
     !!cartItem.colour;
 
-  useEffect(() => {
-    console.log({cartItem}, cartItemReady);
-  }, [cartItem, cartItemReady])
-
   const { name, category, options, imgList, longDescription, price } = itemObj;
-
   const changeHandler = (obj) => {
     setCartItem({
       ...cartItem,
@@ -146,17 +181,20 @@ export const Details = (props) => {
   };
 
   const addToCart = () => {
-    const item = {
-      ...cartItem,
-      price,
-      quantity: 1,
-      id,
-      uid: shortid.generate()
+    if (itemCount < 9) {
+      const item = {
+        ...cartItem,
+        price,
+        quantity: 1,
+        id,
+        uid: shortid.generate()
+      }
+      setItemCount(itemCount + 1)
+      setCartItem(item)
+      dispatch(addItem(item));
+      setAddedToCart(true)
+      console.log({itemCount})
     }
-    console.log(item)
-    setCartItem(item)
-    dispatch(addItem(item));
-    setAddedToCart(true)
   }
 
   return (
@@ -170,7 +208,7 @@ export const Details = (props) => {
               <Price>{ formattedPrice }</Price>
               <Title>{ name }</Title>
             </Header>
-            <TextContainer>
+            <OptionsContainer>
               <PositionSizes
                 arr={sizes.list}
                 title={sizes.type}
@@ -183,22 +221,31 @@ export const Details = (props) => {
                 objKey={colours.type}
                 changeHandler={changeHandler}
               />
-              <Button
-                title={!cartItemReady ? "Please select size and colour" : "Add to Cart"}
-                onClick={addToCart}
-                disabled={!cartItemReady}
-              >
-                Add to Cart ({cartCount})
-              </Button>
+              <ButtonWrapper>
+                <Button
+                  title={!cartItemReady ? "Please select size and colour" : "Add to Cart"}
+                  onClick={addToCart}
+                  disabled={!cartItemReady || itemCount >= 9}
+                >
+                  Add to Cart ({itemCount})
+                </Button>
+                <span>{
+                  !cartItemReady
+                    ? `Please select size and colour`
+                    : itemCount >= 9
+                      ? 'Max quantity for this item reached'
+                      : ''
+                }</span>
+              </ButtonWrapper>
               {
-                addedToCart &&
-                <Button disabled={cartCount === 0}>Checkout</Button>
+                (addedToCart && (itemCount !== 0)) &&
+                <CheckoutButton>Checkout</CheckoutButton>
               }
 
               <Description>
                 { longDescription }
               </Description>
-            </TextContainer>
+            </OptionsContainer>
           </Container>
         <Collection name={collectionObj.name} obj={collectionObj.obj} />
         </>

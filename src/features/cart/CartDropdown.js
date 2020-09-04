@@ -12,7 +12,9 @@ import data from '../../mockInventory.json';
 import styled from 'styled-components';
 
 const StyledDropdown = styled.div`
-
+  .empty-cart {
+    margin: 1rem 0;
+  }
   .dropdown-title {
     margin: 0;
   }
@@ -59,7 +61,7 @@ const StyledDropdown = styled.div`
   .buttons-container {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
 
     .button {
       background: black;
@@ -71,6 +73,11 @@ const StyledDropdown = styled.div`
       padding: .5rem 1rem;
       ~ .button {
         margin-left: 1rem;
+      }
+
+      &.disabled {
+        background: #DADADA;
+        color:#CACACA;
       }
     }
   }
@@ -118,12 +125,19 @@ export function CartDropdown() {
   return (
     <StyledDropdown>
       <h3 className="dropdown-title">Cart Items</h3>
-      <ul className="cart-list">
-        { cartList }
-      </ul>
+      {
+        cartList.length === 0 ?
+          <p className="empty-cart">No items in cart.</p>
+        :
+          <ul className="cart-list">
+            { cartList }
+          </ul>
+      }
       <div className="buttons-container">
         <Link className="button" to="/cart">View Cart ({cartCount})</Link>
-        <Link className="button" to="/checkout">Checkout</Link>
+        { cartList.length !== 0 && 
+          <Link className={`button`} to="/checkout">Checkout</Link>
+        }
       </div>
     </StyledDropdown>
   )
