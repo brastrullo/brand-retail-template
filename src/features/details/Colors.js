@@ -13,7 +13,8 @@ const Title = styled.p`
 const List = styled.ul`
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 4.5rem);
+  grid-gap: .25rem;
+  grid-template-columns: repeat(auto-fit, 4.25rem);
   padding-left: 0;
   margin: 0;
 `;
@@ -56,7 +57,8 @@ const Button = styled.label`
   }
   display: flex;
   position: relative;
-  width: 4rem;
+  width: 100%;
+  max-width: 4.5rem;
   height: 1.5rem;
   margin: 0 0 .65rem 0;
   border: 1px solid lightgray;

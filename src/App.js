@@ -1,3 +1,5 @@
+// **** Look into adding GraphQL into Redux
+
 import React, { useEffect } from 'react';
 import { Cart } from './features/cart/Cart';
 import { Details } from './features/details/Details';
