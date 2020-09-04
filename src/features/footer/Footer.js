@@ -15,19 +15,21 @@ const StyledFooter = styled.footer`
   grid-template-rows: auto auto 1.2rem;
   align-items: end;
   grid-template-areas:
-  "logo . sublinks links ."
-  "social . sublinks links ."
-  "details details details details details";
+  "logoicon logo . sublinks links ."
+  "social social . sublinks links ."
+  "details details details details details details";
   @media (max-width: 800px) {
     text-align: center;
     gap: 0 0;
     grid-template-columns: 100%;
-    grid-template-rows: max-content max-content auto auto 1.2rem;
+    grid-template-rows: max-content max-content 2rem auto auto auto 1.2rem;
     justify-content: center;
     justify-items: center;
     grid-template-areas:
     "sublinks"
     "links"
+    "."
+    "logoicon"
     "logo"
     "social"
     "details";
@@ -38,16 +40,37 @@ const StyledFooter = styled.footer`
 `;
 
 const Logo = styled.p`
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  justify-content: center;
   grid-area: logo;
   font-size: 3rem;
   font-weight: bold;
   margin: 0;
+  /* span + span {
+    margin-left: 1rem;
+  } */
+  @media (max-width: 800px) {
+    flex-flow: column nowrap;
+  }
 `;
+
+const LogoIcon = styled.span`
+  grid-area: logoicon;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: grey;
+`;
+
 const SocialMediaComponent = styled(SocialMedia)`
   grid-area: social;
-  @media (max-width: 800px) {
+  /* @media (max-width: 800px) {
     margin: 1rem;
-  }
+  } */
 `;
 const Links = styled.div`
   grid-area: links;
@@ -88,26 +111,30 @@ export const Footer = () => {
 
   const links = [
     {
-      label: 'Github',
-      link: 'https://www.github.com',
-      icon: 'Gh'
+      label: 'Facebook',
+      link: 'https://www.facebook.com',
+      icon: 'fb'
     },
     {
       label: 'Instagram',
       link: 'https://www.instagram.com',
-      icon: 'Ig'
+      icon: 'in'
     },
     {
-      label: 'LinkedIn',
-      link: 'https://www.linkedin.com',
-      icon: 'Li'
+      label: 'Twitter',
+      link: 'https://www.twitter.com',
+      icon: 'tw'
     },
 
   ]
 
   return (
     <StyledFooter>
-      <Logo>BRAND</Logo>
+      
+      <Logo>
+        <LogoIcon />
+        <span>BRAND</span>
+      </Logo>
       <SocialMediaComponent links={links} />
       <Links>
         <p>Contact</p>
