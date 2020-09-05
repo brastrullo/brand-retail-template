@@ -2,10 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledShop = styled.div`
-  min-height: calc(100vh - 4rem - 10.5rem);
+  min-height: calc(100vh - 3rem);
   h1 {
     font-size: 3rem;
     margin: 1rem;
+  }
+  @media (max-width: 800px) {
+    margin-top: 3rem;
   }
 `;
 export const Shop = () => {

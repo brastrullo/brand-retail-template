@@ -4,8 +4,7 @@ import SocialMedia from '../social/SocialWidget';
 
 const StyledFooter = styled.footer`
   box-sizing: border-box;
-  /* height: auto; */
-  min-height: 6rem;
+  min-height: 10rem;
   background: black;
   color: white;
   padding: 1rem 1rem 0;
@@ -15,10 +14,11 @@ const StyledFooter = styled.footer`
   grid-template-rows: auto auto 1.2rem;
   align-items: end;
   grid-template-areas:
-  "logoicon logo . sublinks links ."
-  "social social . sublinks links ."
-  "details details details details details details";
+  "logo . sublinks links ."
+  "social . sublinks links ."
+  "details details details details details";
   @media (max-width: 800px) {
+    margin-bottom: 10rem;
     text-align: center;
     gap: 0 0;
     grid-template-columns: 100%;
@@ -42,52 +42,41 @@ const StyledFooter = styled.footer`
 const Logo = styled.p`
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
-  align-content: center;
-  text-align: center;
-  justify-content: center;
   grid-area: logo;
   font-size: 3rem;
   font-weight: bold;
+  align-items: center;
+  align-content: center;
   margin: 0;
-  /* span + span {
+  span + span {
     margin-left: 1rem;
-  } */
+  }
   @media (max-width: 800px) {
     flex-flow: column nowrap;
+    text-align: center;
+    justify-content: center;
+    span + span {
+      margin-left: 0;
+    }
   }
 `;
 
 const LogoIcon = styled.span`
   grid-area: logoicon;
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   background: grey;
 `;
 
 const SocialMediaComponent = styled(SocialMedia)`
   grid-area: social;
-  /* @media (max-width: 800px) {
-    margin: 1rem;
-  } */
 `;
 const Links = styled.div`
   grid-area: links;
-  /* p {
-    margin: 0;
-    ~ p {
-      margin-bottom: .5rem;
-    }
-  } */
 `;
 const Sublinks = styled.div`
   grid-area: sublinks;
-  /* p {
-    margin: 0;
-    ~ p {
-      margin-top: .5rem;
-    }  } */
 `;
 
 const FooterDetails = styled.div`
@@ -130,7 +119,6 @@ export const Footer = () => {
 
   return (
     <StyledFooter>
-      
       <Logo>
         <LogoIcon />
         <span>BRAND</span>

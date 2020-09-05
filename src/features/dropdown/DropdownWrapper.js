@@ -50,7 +50,11 @@ const DropdownWrapper = (props) => {
   const { isDropdownShown, dropdownHandler } = useDropdown();
   
   return (
-    <Wrapper onClick={dropdownHandler} >
+    <Wrapper
+      onClick={dropdownHandler}
+      onMouseEnter={dropdownHandler}
+      onMouseLeave={dropdownHandler}
+    >
       <Button>
         <span>{ label}</span>
         { count !== 'undefined' &&

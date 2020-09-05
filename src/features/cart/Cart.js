@@ -19,19 +19,17 @@ const inputBaseStyle = `
   border: none;
 `
 const StyledCart = styled.div`
-  min-height: calc(100vh - 4rem - 10.5rem);
+  min-height: calc(100vh - 4rem);
+
+  @media (max-width: 800px) {
+    margin-top: 3rem;
+    min-height: calc(100vh - 4rem);
+  }
 
   h1 {
-    margin: 1rem;
+    padding: 1rem;
+    margin: 0;
     font-size: 3rem;
-  }
-  main {
-    width: 60rem;
-    margin: 0rem auto;
-    font-size: 16px;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
   }
 
   select, button {
@@ -42,16 +40,7 @@ const StyledCart = styled.div`
     list-style: none;
     padding-left: 0;
   }
-  .cart-item {
-    display: flex;
-    flex-flow: row wrap;
-    padding-bottom: 1rem;
-    margin: 1rem 0;
-    max-width: 35rem;
-    :not(:last-of-type) {
-      border-bottom: 1px solid lightgray;
-    }
-  }
+
   .img-wrapper {
     display: flex;
     margin: 1rem;
@@ -144,19 +133,89 @@ const StyledCart = styled.div`
       content: '$';
     }
   }
+`;
 
-  .cart-summary {
-    width: 20rem;
-    display: flex;
-    flex-flow: column nowrap;
-    p {
-      display: flex;
-      margin: .5rem 0;
-      justify-content: space-between;
-      flex-flow: row nowrap;
-    }
+const MainContainer = styled.main`
+  box-sizing: border-box;
+  width: auto;
+  /* margin: 0 4rem; */
+  font-size: 16px;
+  display: grid;
+  gap: 1rem 1rem;
+  grid-template-columns: auto minmax(15rem, 35rem) minmax(auto, 20rem) auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+  ". items summary .";
+  @media (max-width: 800px) {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      ". items ."
+      ". summary .";
   }
-  .checkout-btn {
+`;
+const ReviewContainer = styled.div`
+  grid-area: items;
+  min-height: 40vh;
+`;
+const CartItem = styled.li`
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: 1rem;
+  margin: 1rem 0;
+  max-width: 35rem;
+  :not(:last-of-type) {
+    border-bottom: 1px solid lightgray;
+  }
+`;
+const SummaryContainer = styled.div`
+  grid-area: summary;
+  width: 20rem;
+  display: flex;
+  flex-flow: column nowrap;
+  h2 {
+    margin: .25rem 0 .5rem;
+  }
+  p {
+    display: flex;
+    margin: .25rem 0;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+  }
+
+  @media (max-width: 800px) {
+    box-sizing: border-box;
+    padding: .5rem 1rem;
+    background: white;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 12rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+`;
+const CheckoutBtnWrapper = styled.div`
+  @media (max-width: 800px) {
+    width: 100%;
+    /* background: white;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0; */
+  }
+
+    .checkout-btn {
     align-self: flex-end;
     text-align: center;
     display: flex;
@@ -172,9 +231,12 @@ const StyledCart = styled.div`
     font-weight: bold;
     width: 10.5rem;
     padding: .75rem;
+    @media (max-width: 800px) {
+      margin: .5rem 0 0;
+      width: auto;
+    }
   }
 `;
-
 export function Cart() {
   const items = useSelector(selectItemArray);
   const cartCount = useSelector(selectCartCount);
@@ -242,7 +304,7 @@ export function Cart() {
     const imgUrl = `https://source.unsplash.com/${id}/200x200`;
     const itemPrice = (itemObj.price * quantity).toFixed(2)
     const COLOUR_LABEL = itemObj.options[1].type
-    return <li key={`c${i}`} className="cart-item">
+    return <CartItem key={`c${i}`} className="cart-item">
       <div className={'btn-wrapper item-delete'}>
         <button onClick={() => removeItemHandler(id)}>X</button>
       </div>
@@ -291,20 +353,23 @@ export function Cart() {
         </div>
         <p className="details-price format-price">{itemPrice}</p>
       </div>
-    </li>
+    </CartItem>
   })
 
   const totalSummary = () => {
     const shipping = items.length > 0 ? (25).toFixed(2) : 0;
     const total = (Number(subtotal) + Number(shipping)).toFixed(2);
     return (
-      <div className="cart-summary">
+      <SummaryContainer className="cart-summary">
         <h2>Summary</h2>
-        <p>Cart Count: { cartCount }</p>
-        <p className="summary-subtotal">
-          <span>Subtotal: </span>
-          <span className={'format-price'}>{subtotal}</span>
-        </p>
+        {/* <p>Cart Count: { cartCount }</p> */}
+        {
+          subtotal > 0 && 
+          <p className="summary-subtotal">
+            <span>Subtotal: </span>
+            <span className={'format-price'}>{subtotal}</span>
+          </p>
+        }
         { shipping > 0 &&
           <p className="summary-shipping">
             <span>Shipping and Handling: </span>
@@ -315,16 +380,18 @@ export function Cart() {
           <span>Total: </span>
           <span className={'format-price'}>{total}</span>
         </p>
-        <Link className={'checkout-btn'} to="/checkout">Checkout</Link>
-      </div>
+        <CheckoutBtnWrapper>
+          <Link className={'checkout-btn'} to="/checkout">Checkout</Link>
+        </CheckoutBtnWrapper>
+      </SummaryContainer>
     )
   }
 
   return (
     <StyledCart>
     <h1>Your Cart</h1>
-    <main>
-      <div className={'review-list'}>
+    <MainContainer>
+      <ReviewContainer className={'review-list'}>
         <h2>Review Items</h2>
         {
           Number(cartCount) === 0 ?
@@ -340,9 +407,9 @@ export function Cart() {
             </ul>
 
         }
-      </div>
-      { totalSummary() }
-    </main>
+      </ReviewContainer>
+      { subtotal > 0 && totalSummary() }
+    </MainContainer>
     </StyledCart>
   );
 }
