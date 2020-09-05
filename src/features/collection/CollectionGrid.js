@@ -9,17 +9,24 @@ const Title = styled.h3`
 `;
 
 const StyledCollection = styled.section`
-  margin: 1rem;
-  display: flex;
-  flex-flow: row nowrap;
-  grid-gap: .5rem;
-  overflow: scroll;
-  image {
-    min-width: 325px;
+  margin: 1rem 1rem 3rem;
+  /* max-width: calc(3 * (400px) + (2 * 1rem)); */
+  /* justify-items: center; */
+  justify-content: center;
+  display: grid;
+  gap: 1rem 1rem;
+  grid-template-columns: repeat(3, minmax(150px, max-content));
+  grid-auto-rows: auto ;
+  overflow: hidden;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, minmax(auto, max-content));
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(1, minmax(100%, max-content));
   }
 `;
 
-export const Collection = (props) => {
+export const CollectionGrid = (props) => {
   const { obj, name } = props;
 
   const collectionMap = (obj || []).map(item =>

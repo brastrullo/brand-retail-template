@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { Sizes } from './Sizes';
 import { Colors } from './Colors';
 import { ImageContainer } from './ImageContainer';
-import Collection from '../collection/Collection';
+import { Collection } from '../collection/Collection';
 import {
   addItemAndUpdateCount as addItem,
 } from '../cart/cartSlice';
