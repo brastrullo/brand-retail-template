@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
+import { isMobile } from 'react-device-detect';
 
-const size = 400;
+const size = isMobile ? '100vw - 2rem' : '400px';
 const ItemContainer = styled(Link)`
   text-decoration: none;
   margin: 0 .5rem 2rem 0;
   display: inline-grid;
-  width: ${size}px;
+  width: calc(${size});
+  max-width: 400px;
   grid-template-columns: auto auto auto 3rem;
   grid-template-rows: repeat(3, min-content);
   color: black;
@@ -19,8 +21,10 @@ const ItemContainer = styled(Link)`
 
 const Image = styled.img`
   grid-area: 1/1/auto/last;
-  width: ${size}px;
-  height: ${size}px;
+  width: calc(${size});
+  height: calc(${size});
+  max-width: 400px;
+  max-height: 400px;
 
   ${ItemContainer}:hover & {
     filter: saturate(1.1);
@@ -36,7 +40,8 @@ const Description = styled.p`
 `;
 
 const Price = styled.p`
-  justify-self: center;
+  justify-self: end;
+  padding-right: 1rem;
   grid-area: 2/5/2/span 1;
   font-weight: bold;
 `;
@@ -49,7 +54,7 @@ const CollectionItem = (props) => {
     id,
     price
   } = obj;
-  const imgUrl = `https://source.unsplash.com/${id}/${size}x${size}`;
+  const imgUrl = `https://source.unsplash.com/${id}/400x400`;
   
   return (
     <ItemContainer to={`/details/${id}`} >

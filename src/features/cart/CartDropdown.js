@@ -13,10 +13,12 @@ import styled from 'styled-components';
 
 const StyledDropdown = styled.div`
   .empty-cart {
+    /* text-align: right; */
     margin: 1rem 0;
   }
   .dropdown-title {
     margin: 0;
+    /* text-align: right; */
   }
 
   .cart-list {
@@ -60,7 +62,7 @@ const StyledDropdown = styled.div`
   }
   .buttons-container {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row-reverse nowrap;
     justify-content: flex-start;
 
     .button {
@@ -72,7 +74,7 @@ const StyledDropdown = styled.div`
       text-decoration: none;
       padding: .5rem 1rem;
       ~ .button {
-        margin-left: 1rem;
+        margin-right: 1rem;
       }
 
       &.disabled {
@@ -103,7 +105,7 @@ export function CartDropdown() {
         <img className="cart-item-img" src={imgUrl} alt={'placeholder'} />
         <div className="details-container">
           <p className="details-name">{itemObj.name}</p>
-          <p className="details-desc">{itemObj.category}</p>
+          {/* <p className="details-desc">{itemObj.category}</p> */}
           <div className="specs-container">
             <p className="spec-item">
               <span className="spec-item-label">Quantity: </span>

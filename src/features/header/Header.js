@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import flag from '../../assets/canada.png';
+// import flag from '../../assets/canada.png';
 import { CartDropdown } from '../cart/CartDropdown';
 import { selectCartCount } from '../cart/cartSlice';
 import { Link } from "react-router-dom";
@@ -11,11 +11,11 @@ const StyledHeader = styled.header`
   box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: space-between ;
   align-content: center;
   align-items: center;
   height: 3rem;
-  padding: 0 1rem;
+  padding: 0 0 0 1rem;
   border-bottom: 1px solid lightgrey;
   background: white;
   z-index: 9999999999999999;
@@ -83,7 +83,7 @@ const StyledHeader = styled.header`
 
     li {
       cursor: pointer;
-      margin: auto 1rem;
+      margin: auto;
       position: relative;
     }
   }
@@ -117,14 +117,14 @@ export function Header() {
           <Link to="/shop" className={'link-wrapper'}>Shop</Link>
         </li>
         <li>
-          <Dropdown label={'Cart'} count={cartCount}>
+          <Dropdown route={"/cart"} label={'Cart'} count={cartCount}>
             <CartDropdown />
           </Dropdown>
         </li>
-        <div className={'dropdown-wrapper'}>
+        {/* <div className={'dropdown-wrapper'}>
           <img src={flag} alt={'canada-locale'} />
           <i className={'.dropdown-i'} />
-        </div>
+        </div> */}
       </ul>
     </StyledHeader>
   )

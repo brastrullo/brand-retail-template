@@ -19,19 +19,6 @@ const inputBaseStyle = `
   border: none;
 `
 const StyledCart = styled.div`
-  min-height: calc(100vh - 4rem);
-
-  @media (max-width: 800px) {
-    margin-top: 3rem;
-    min-height: calc(100vh - 4rem);
-  }
-
-  h1 {
-    padding: 1rem;
-    margin: 0;
-    font-size: 3rem;
-  }
-
   select, button {
     cursor: pointer;
   }

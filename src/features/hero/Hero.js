@@ -13,6 +13,7 @@ const StyledBanner = styled.div`
 
   h1 {
     margin: auto;
+    font-size: 6rem;
   }
 `;
 

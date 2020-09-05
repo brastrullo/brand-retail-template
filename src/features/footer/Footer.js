@@ -18,7 +18,7 @@ const StyledFooter = styled.footer`
   "social . sublinks links ."
   "details details details details details";
   @media (max-width: 800px) {
-    margin-bottom: 10rem;
+    /* margin-bottom: 10rem; */
     text-align: center;
     gap: 0 0;
     grid-template-columns: 100%;
@@ -87,7 +87,7 @@ const FooterDetails = styled.div`
   background: black;
   height: 1.2rem;
   width: 100%;
-  color: darkgray;
+  color: #373737;
   padding: 0 .5rem 0;
   justify-content: center;
   p {
@@ -132,7 +132,7 @@ export const Footer = () => {
         <p>Shop Collection</p>
       </Sublinks>
       <FooterDetails>
-        <p>(c) 2020 Brand</p>
+        <p>(c) 2020 Brand by bradley.rastrullo</p>
       </FooterDetails>
     </StyledFooter>
   );

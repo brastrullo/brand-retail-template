@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import useDropdown from './useDropdown';
+import { useHistory } from "react-router-dom";
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,12 +47,19 @@ const Dropdown = styled.div`
   z-index: 999;
 `;
 const DropdownWrapper = (props) => {
-  const { count, label, children } = props;
+  const history = useHistory();
+  const { count, label, children, route } = props;
   const { isDropdownShown, dropdownHandler } = useDropdown();
+
+  const goToRoute = () => {
+    if (route) {
+      history.push(route)
+    }
+  }
   
   return (
     <Wrapper
-      onClick={dropdownHandler}
+      onClick={goToRoute}
       onMouseEnter={dropdownHandler}
       onMouseLeave={dropdownHandler}
     >

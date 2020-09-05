@@ -1,11 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const useDropdown = () => {
   const [isDropdownShown, setIsDropdownShown] = useState(false);
-
-  useEffect(() => {
-    console.log({isDropdownShown})
-  }, [isDropdownShown])
 
   const dropdownHandler = () => {
     setIsDropdownShown(!isDropdownShown)
