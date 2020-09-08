@@ -24,7 +24,7 @@ const ItemContainer = styled(Link)`
 const ImageWrapper = styled.div`
   grid-area: image;
   img {
-  min-width: 325px;
+  min-width: 300px;
   max-width: 1000px;
   max-height: 1000px;
     width: 100%;
@@ -32,7 +32,7 @@ const ImageWrapper = styled.div`
   }
   &:hover {
     img {
-      filter: brightness(1.25);
+      filter: brightness(1.05);
     }
   }
 `;

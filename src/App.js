@@ -4,7 +4,9 @@ import React, { useEffect } from 'react';
 import { Layout } from './features/layout/Layout';
 import { Cart } from './features/cart/Cart';
 import { Details } from './features/details/Details';
+import { NewArrivals } from './features/shop/NewArrivals';
 import { Shop } from './features/shop/Shop';
+import { Contact } from './features/contact/Contact';
 import { Home } from './features/home/Home';
 import ScrollToTop from './utils/ScrollToTop';
 import { useDispatch } from 'react-redux';
@@ -27,11 +29,17 @@ function App() {
         <Route path="/checkout">
           <h3>Checkout</h3>
         </Route>
+        <Route path="/contact">
+          <Layout component={Contact} />
+        </Route>
         <Route path="/cart">
           <Layout component={Cart} />
         </Route>
         <Route path="/details/:id">
           <Layout component={Details} />
+        </Route>
+        <Route path="/shop/new-arrivals">
+          <Layout component={NewArrivals} />
         </Route>
         <Route path="/shop">
           <Layout component={Shop} />

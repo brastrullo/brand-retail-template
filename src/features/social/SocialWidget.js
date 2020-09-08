@@ -47,9 +47,16 @@ export const SocialWidget = ({links, className}) => {
   const SocialLinkMap = links.map((obj, i) => {
     const { label, link, icon } = obj;
     const FaIcon = Icons[icon]
+
     return (
       <LinkContainer key={shortid.generate()}>
-        <Link className={'link-label'} to={link} label={label} >
+        <Link
+          rel='noopener noreferrer'
+          to={`//${link}`}
+          target="_blank"
+          className={'link-label'}
+          label={label}
+        >
           <i>{React.createElement(FaIcon)}</i>
         </Link>
       </LinkContainer>

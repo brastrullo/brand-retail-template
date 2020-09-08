@@ -43,17 +43,18 @@ const Dropdown = styled.div`
   background: rgba(255, 255, 255);
   border: 1px solid lightgray;
   border-top: none;
-  width: 20rem;
+  max-width: 25rem;
   z-index: 999;
 `;
 const DropdownWrapper = (props) => {
   const history = useHistory();
   const { count, label, children, route } = props;
   const { isDropdownShown, dropdownHandler } = useDropdown();
-
+  
   const goToRoute = () => {
     if (route) {
       history.push(route)
+      dropdownHandler()
     }
   }
   

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SocialMedia from '../social/SocialWidget';
+import { Link } from "react-router-dom";
 
 const StyledFooter = styled.footer`
   box-sizing: border-box;
@@ -22,16 +23,16 @@ const StyledFooter = styled.footer`
     text-align: center;
     gap: 0 0;
     grid-template-columns: 100%;
-    grid-template-rows: max-content max-content 2rem auto auto auto 1.2rem;
+    grid-template-rows: max-content max-content auto auto auto 1rem 1.2rem;
     justify-content: center;
     justify-items: center;
     grid-template-areas:
     "sublinks"
     "links"
-    "."
     "logoicon"
     "logo"
     "social"
+    "."
     "details";
   }
   p {
@@ -74,9 +75,18 @@ const SocialMediaComponent = styled(SocialMedia)`
 `;
 const Links = styled.div`
   grid-area: links;
-`;
+  margin: 1rem;
+  `;
 const Sublinks = styled.div`
+  margin: 1rem;
   grid-area: sublinks;
+`;
+
+const LinkList = styled.ul`
+  .footer-link {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const FooterDetails = styled.div`
@@ -101,17 +111,17 @@ export const Footer = () => {
   const links = [
     {
       label: 'Facebook',
-      link: 'https://www.facebook.com',
+      link: 'facebook.com',
       icon: 'fb'
     },
     {
       label: 'Instagram',
-      link: 'https://www.instagram.com',
+      link: 'instagram.com',
       icon: 'in'
     },
     {
       label: 'Twitter',
-      link: 'https://www.twitter.com',
+      link: 'twitter.com',
       icon: 'tw'
     },
 
@@ -125,11 +135,22 @@ export const Footer = () => {
       </Logo>
       <SocialMediaComponent links={links} />
       <Links>
-        <p>Contact</p>
+        <LinkList>
+          <li>
+            <Link to="/contact" className={'footer-link'}>Contact</Link>
+          </li>
+        </LinkList>
       </Links>
       <Sublinks>
-        <p>New Arrivals</p>
-        <p>Shop Collection</p>
+      <LinkList>
+        <li>
+          <Link to="/shop/new-arrivals" className={'footer-link'}>New Arrivals</Link>
+        </li>
+        <li>
+          <Link to="/shop" className={'footer-link'}>Shop Collection</Link>
+        </li>
+      </LinkList>
+        
       </Sublinks>
       <FooterDetails>
         <p>(c) 2020 Brand by bradley.rastrullo</p>
