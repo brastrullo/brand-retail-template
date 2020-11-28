@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
-import { isMobile } from 'react-device-detect';
+// import { isMobile } from 'react-device-detect';
 
-const size = isMobile ? '100vw - 2rem' : '1000px';
+// const size = isMobile ? '100vw - 2rem' : '1000px';
 const ItemContainer = styled(Link)`
   text-decoration: none;
   margin: 0 0 2rem;
