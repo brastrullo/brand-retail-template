@@ -91,7 +91,7 @@ export function CartDropdown() {
   // const dispatch = useDispatch();
   const getInventoryData = () => data.inventory;
   const getItemObj = (id) => getInventoryData().find(item => item.id === id);
-  
+
   const cartList = items.map((item, i) => {
     const imgUrl = `https://source.unsplash.com/${item.id}/80x80`;
     const { id, colour, size, quantity } = item;
