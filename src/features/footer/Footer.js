@@ -4,6 +4,7 @@ import SocialMedia from '../social/SocialWidget';
 import { Link } from "react-router-dom";
 
 const StyledFooter = styled.footer`
+  width: 100%;
   box-sizing: border-box;
   min-height: 10rem;
   background: black;
@@ -11,13 +12,16 @@ const StyledFooter = styled.footer`
   padding: 1rem 1rem 0;
   display: grid;
   gap: 1rem 3rem;
-  grid-template-columns: minmax(max-content, auto) auto max-content max-content minmax(0, 1rem);
+  grid-template-columns: minmax(max-content, auto) auto max-content max-content minmax(
+      0,
+      1rem
+    );
   grid-template-rows: auto auto 1.2rem;
   align-items: end;
   grid-template-areas:
-  "logo . sublinks links ."
-  "social . sublinks links ."
-  "details details details details details";
+    'logo . sublinks links .'
+    'social . sublinks links .'
+    'details details details details details';
   @media (max-width: 800px) {
     /* margin-bottom: 10rem; */
     text-align: center;
@@ -27,16 +31,16 @@ const StyledFooter = styled.footer`
     justify-content: center;
     justify-items: center;
     grid-template-areas:
-    "sublinks"
-    "links"
-    "logoicon"
-    "logo"
-    "social"
-    "."
-    "details";
+      'sublinks'
+      'links'
+      'logoicon'
+      'logo'
+      'social'
+      '.'
+      'details';
   }
   p {
-    margin: .5rem 0 0;
+    margin: 0.5rem 0 0;
   }
 `;
 
